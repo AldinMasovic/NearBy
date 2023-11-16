@@ -7,6 +7,7 @@ com/example/demo/data/util/SortingOrder.class
 com/example/demo/data/product/ProductRepository.class
 com/example/demo/domain/product/gps/GpsCoordinateMapper.class
 com/example/demo/NearByApplication.class
+com/example/demo/configuration/OpenApiConfig.class
 com/example/demo/data/gps/GpsCoordinate.class
 com/example/demo/domain/category/CategoryDto.class
 com/example/demo/domain/product/view/ImageDto.class

@@ -55,8 +55,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             Pageable pageable
     );
 
-
-    //TODO swagger
     //TODO run the project instruction in help.md
-    //TODO validation on DTO
 }

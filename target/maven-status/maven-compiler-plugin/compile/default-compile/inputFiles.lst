@@ -1,6 +1,7 @@
 /Users/aldinmasovic/Downloads/nearBy/NearBy/src/main/java/com/example/demo/data/exceptions/NotFoundException.java
 /Users/aldinmasovic/Downloads/nearBy/NearBy/src/main/java/com/example/demo/data/product/PriceRange.java
 /Users/aldinmasovic/Downloads/nearBy/NearBy/src/main/java/com/example/demo/domain/product/ProductController.java
+/Users/aldinmasovic/Downloads/nearBy/NearBy/src/main/java/com/example/demo/configuration/OpenApiConfig.java
 /Users/aldinmasovic/Downloads/nearBy/NearBy/src/main/java/com/example/demo/domain/product/gps/GpsCoordinateMapper.java
 /Users/aldinmasovic/Downloads/nearBy/NearBy/src/main/java/com/example/demo/domain/category/CategoryMapper.java
 /Users/aldinmasovic/Downloads/nearBy/NearBy/src/main/java/com/example/demo/domain/product/ProductDto.java
