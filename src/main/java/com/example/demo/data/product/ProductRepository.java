@@ -12,57 +12,43 @@ import java.math.BigDecimal;
 import java.util.Set;
 
 @Repository
-public interface ProductRepository  extends JpaRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<Product, Long> {
 
 
     @Query("""
             select p from Product p
             where p.availableInStock > :availableInStock
-            and p.price between :minPrice
-            and :maxPrice
-            and p.category in :categories
+              and (:minPrice is null or p.price >= :minPrice)
+              and (:maxPrice is null or p.price <= :maxPrice)
+              and (:category is null or p.category = :category)
             order by p.price ASC""")
-    Page<Product> findByAvailableInStockGreaterThanAndPriceBetweenAndCategoriesInOrderByPriceAsc(
+    Page<Product> findByAvailableInStockGreaterThanAndPriceBetweenAndCategoryInOrderByPriceAsc(
             @Param("availableInStock") Integer availableInStock,
             @Param("minPrice") BigDecimal minPrice,
             @Param("maxPrice") BigDecimal maxPrice,
-            @Param("categories") Set<Category> categories,
+            @Param("category") Category category,
             Pageable pageable
     );
 
     @Query("""
             select p from Product p
             where p.availableInStock > :availableInStock
-            and p.price between :minPrice
-            and :maxPrice
-            and p.category in :categories
+              and (:minPrice is null or p.price >= :minPrice)
+              and (:maxPrice is null or p.price <= :maxPrice)
+              and (:category is null or p.category = :category)
             order by p.price DESC""")
     Page<Product> findByAvailableInStockGreaterThanAndPriceBetweenAndCategoryInOrderByPriceDesc(
             @Param("availableInStock") Integer availableInStock,
             @Param("minPrice") BigDecimal minPrice,
             @Param("maxPrice") BigDecimal maxPrice,
-            @Param("categories") Set<Category> categories,
+            @Param("category") Category category,
             Pageable pageable
     );
-
     @Query("""
-            select p from Product p
-            where p.availableInStock > :availableInStock
-            and p.price between :minPrice
-            and :maxPrice
-            order by p.price DESC""")
-    Page<Product> findByAvailableInStockGreaterThanAndPriceBetweenOrderByPriceDesc(
-            @Param("availableInStock") Integer availableInStock,
-            @Param("minPrice") BigDecimal minPrice,
-            @Param("maxPrice") BigDecimal maxPrice,
-            Pageable pageable
-    );
-
-    @Query("""
-        SELECT p FROM Product p
-        WHERE p.availableInStock > 0
-        ORDER BY acos(sin(:latitude) * sin(p.gpsCoordinate.latitude) +
-        cos(:latitude) * cos(p.gpsCoordinate.latitude) * cos(:longitude - p.gpsCoordinate.longitude)) ASC""")
+            SELECT p FROM Product p
+            WHERE p.availableInStock > 0
+            ORDER BY acos(sin(:latitude) * sin(p.gpsCoordinate.latitude) +
+            cos(:latitude) * cos(p.gpsCoordinate.latitude) * cos(:longitude - p.gpsCoordinate.longitude)) ASC""")
     Page<Product> findClosestProducts(
             @Param("latitude") BigDecimal latitude,
             @Param("longitude") BigDecimal longitude,
@@ -72,8 +58,5 @@ public interface ProductRepository  extends JpaRepository<Product, Long> {
 
     //TODO swagger
     //TODO run the project instruction in help.md
-    //TODO implement tests
-    //TODO insert data by flyway
     //TODO validation on DTO
-
 }

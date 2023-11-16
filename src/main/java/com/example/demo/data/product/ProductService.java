@@ -19,6 +19,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -81,49 +82,41 @@ public class ProductService {
                 pageRequest);
     }
 
-    public Page<Product> getProductsInStock(PriceRange priceRange, List<Category> categories, PageRequest pageRequest) {
-        return getProductsInStock(priceRange, categories, SortingOrder.ASC, pageRequest);
+    public Page<Product> getProductsInStock(PriceRange priceRange, Category category, PageRequest pageRequest) {
+        return getProductsInStock(priceRange, category, SortingOrder.ASC, pageRequest);
     }
 
     public Page<Product> getProductsInStock(PriceRange priceRange, SortingOrder sortingOrder, PageRequest pageRequest) {
-        return getProductsInStock(priceRange, new ArrayList<>(), sortingOrder, pageRequest);
+        return getProductsInStock(priceRange, null, sortingOrder, pageRequest);
     }
 
-    public Page<Product> getProductsInStock(List<Category> categories, SortingOrder sortingOrder, PageRequest pageRequest) {
+    public Page<Product> getProductsInStock(Category category, SortingOrder sortingOrder, PageRequest pageRequest) {
         return getProductsInStock(new PriceRange(BigDecimal.valueOf(0), BigDecimal.valueOf(Integer.MAX_VALUE)),
-                categories,
+                category,
                 sortingOrder,
                 pageRequest);
     }
 
     private Page<Product> getProductsInStock(PriceRange priceRange,
-                                             List<Category> categories,
+                                             Category category,
                                              SortingOrder sortingOrder,
                                              PageRequest pageRequest) {
 
         Integer unavailableInStock = 0;
-        if (categories == null || categories.isEmpty()) {
-            return productRepository.findByAvailableInStockGreaterThanAndPriceBetweenOrderByPriceDesc(
-                    unavailableInStock,
-                    priceRange.getMinPrice(),
-                    priceRange.getMaxPrice(),
-                    pageRequest);
-        }
 
-        HashSet<Category> filteredCategories = new HashSet<>(categories);
         if (sortingOrder.equals(SortingOrder.ASC)) {
-            return productRepository.findByAvailableInStockGreaterThanAndPriceBetweenAndCategoriesInOrderByPriceAsc(
+            return productRepository.findByAvailableInStockGreaterThanAndPriceBetweenAndCategoryInOrderByPriceAsc(
                     unavailableInStock,
                     priceRange.getMinPrice(),
                     priceRange.getMaxPrice(),
-                    filteredCategories,
+                    category,
                     pageRequest);
         } else {
             return productRepository.findByAvailableInStockGreaterThanAndPriceBetweenAndCategoryInOrderByPriceDesc(
                     unavailableInStock,
                     priceRange.getMinPrice(),
                     priceRange.getMaxPrice(),
-                    filteredCategories,
+                    category,
                     pageRequest);
         }
     }

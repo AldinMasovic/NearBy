@@ -5,8 +5,8 @@ CREATE TABLE if not exists Product
     description      VARCHAR(255),
     category_id      BIGINT,
     price            DECIMAL                                 NOT NULL,
-    imageUrl         VARCHAR(255),
-    availableInStock INTEGER                                 NOT NULL,
+    image_url         VARCHAR(255),
+    available_in_stock INTEGER                                 NOT NULL,
     latitude         DECIMAL(9, 6),
     longitude        DECIMAL(9, 6),
     CONSTRAINT pk_product PRIMARY KEY (id)

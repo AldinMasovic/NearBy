@@ -8,7 +8,7 @@ public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+    @Column(name = "image_url", nullable = false)
     private String imageUrl;
     @ManyToOne
     @JoinColumn(name = "product_id")

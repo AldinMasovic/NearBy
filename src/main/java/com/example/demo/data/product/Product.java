@@ -27,8 +27,9 @@ public class Product {
 
     @OneToMany(fetch = FetchType.LAZY)
     private List<Image> images = new ArrayList<>();
+    @Column(name = "image_url")
     private String imageUrl;
-    @Column(nullable = false)
+    @Column(name = "available_in_stock", nullable = false)
     private Integer availableInStock;
 
     public Long getId() {

@@ -18,7 +18,6 @@ com/example/demo/data/category/CategoryService.class
 com/example/demo/data/history/price/PriceHistoryRepository.class
 com/example/demo/domain/product/gps/GpsCoordinateDto.class
 com/example/demo/domain/product/ProductDetailDto.class
-com/example/demo/TestController.class
 com/example/demo/domain/product/ProductController.class
 com/example/demo/data/product/ProductService.class
 com/example/demo/domain/product/ProductMapper.class

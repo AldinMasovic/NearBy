@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.demo.NearByApplicationTests" time="2.823" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.demo.data.product.ProductRepositoryTest" time="0.582" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -45,7 +45,7 @@
     <property name="localRepository" value="/Users/aldinmasovic/.m2/repository"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="/var/folders/bc/s00jrsd57wl7ffvn_hckqcl40000gn/T/"/>
-    <property name="com.zaxxer.hikari.pool_number" value="1"/>
+    <property name="com.zaxxer.hikari.pool_number" value="2"/>
     <property name="java.version" value="17.0.1"/>
     <property name="user.dir" value="/Users/aldinmasovic/Downloads/nearBy/NearBy"/>
     <property name="os.arch" value="aarch64"/>
@@ -61,9 +61,9 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="contextLoads" classname="com.example.demo.NearByApplicationTests" time="0.276">
-    <system-out><![CDATA[21:09:17.259 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.demo.NearByApplicationTests]: NearByApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-21:09:17.301 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.demo.NearByApplication for test class com.example.demo.NearByApplicationTests
+  <testcase name="itShouldReturnClosestProductWhenGpsCoordinateAreClose" classname="com.example.demo.data.product.ProductRepositoryTest" time="0.295">
+    <system-out><![CDATA[2023-11-16T21:09:20.014+01:00  INFO 46997 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.demo.data.product.ProductRepositoryTest]: ProductRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-11-16T21:09:20.028+01:00  INFO 46997 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.demo.NearByApplication for test class com.example.demo.data.product.ProductRepositoryTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -73,35 +73,22 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.1.5)
 
-2023-11-16T21:09:17.447+01:00  INFO 46997 --- [           main] c.example.demo.NearByApplicationTests    : Starting NearByApplicationTests using Java 17.0.1 with PID 46997 (started by aldinmasovic in /Users/aldinmasovic/Downloads/nearBy/NearBy)
-2023-11-16T21:09:17.447+01:00  INFO 46997 --- [           main] c.example.demo.NearByApplicationTests    : No active profile set, falling back to 1 default profile: "default"
-2023-11-16T21:09:17.711+01:00  INFO 46997 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-16T21:09:17.736+01:00  INFO 46997 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 3 JPA repository interfaces.
-2023-11-16T21:09:17.977+01:00  INFO 46997 --- [           main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.16.3 by Redgate
-2023-11-16T21:09:17.977+01:00  INFO 46997 --- [           main] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
-2023-11-16T21:09:17.977+01:00  INFO 46997 --- [           main] o.f.c.internal.license.VersionPrinter    : 
-2023-11-16T21:09:17.981+01:00  INFO 46997 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-11-16T21:09:18.090+01:00  INFO 46997 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
-2023-11-16T21:09:18.091+01:00  INFO 46997 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-11-16T21:09:18.097+01:00  INFO 46997 --- [           main] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:h2:mem:testdb (H2 2.1)
-2023-11-16T21:09:18.130+01:00  INFO 46997 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "PUBLIC"."flyway_schema_history" does not exist yet
-2023-11-16T21:09:18.131+01:00  INFO 46997 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 6 migrations (execution time 00:00.006s)
-2023-11-16T21:09:18.134+01:00  INFO 46997 --- [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "PUBLIC"."flyway_schema_history" ...
-2023-11-16T21:09:18.145+01:00  INFO 46997 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": << Empty Schema >>
-2023-11-16T21:09:18.147+01:00  INFO 46997 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2023.11.16.100 - create table category"
-2023-11-16T21:09:18.154+01:00  INFO 46997 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2023.11.16.110 - create table image"
-2023-11-16T21:09:18.158+01:00  INFO 46997 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2023.11.16.120 - create table product"
-2023-11-16T21:09:18.166+01:00  INFO 46997 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2023.11.16.130 - create table price history"
-2023-11-16T21:09:18.170+01:00  INFO 46997 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2023.11.16.140 - insert data category"
-2023-11-16T21:09:18.174+01:00  INFO 46997 --- [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "PUBLIC" to version "2023.11.16.150 - insert data product"
-2023-11-16T21:09:18.177+01:00  INFO 46997 --- [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 6 migrations to schema "PUBLIC", now at version v2023.11.16.150 (execution time 00:00.032s)
-2023-11-16T21:09:18.278+01:00  INFO 46997 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-16T21:09:18.339+01:00  INFO 46997 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.13.Final
-2023-11-16T21:09:18.340+01:00  INFO 46997 --- [           main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
-2023-11-16T21:09:18.505+01:00  INFO 46997 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-11-16T21:09:18.534+01:00  WARN 46997 --- [           main] org.hibernate.dialect.Dialect            : HHH000511: The 2.1.0 version for [org.hibernate.dialect.PostgreSQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.0.0. Check the community dialects project for available legacy versions.
-2023-11-16T21:09:18.537+01:00  WARN 46997 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2023-11-16T21:09:19.102+01:00  INFO 46997 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-11-16T21:09:20.039+01:00  INFO 46997 --- [           main] c.e.d.d.product.ProductRepositoryTest    : Starting ProductRepositoryTest using Java 17.0.1 with PID 46997 (started by aldinmasovic in /Users/aldinmasovic/Downloads/nearBy/NearBy)
+2023-11-16T21:09:20.039+01:00  INFO 46997 --- [           main] c.e.d.d.product.ProductRepositoryTest    : No active profile set, falling back to 1 default profile: "default"
+2023-11-16T21:09:20.086+01:00  INFO 46997 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-16T21:09:20.092+01:00  INFO 46997 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 3 JPA repository interfaces.
+2023-11-16T21:09:20.118+01:00  INFO 46997 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-11-16T21:09:20.119+01:00  INFO 46997 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:testdb user=SA
+2023-11-16T21:09:20.119+01:00  INFO 46997 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-11-16T21:09:20.119+01:00  INFO 46997 --- [           main] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:h2:mem:testdb (H2 2.1)
+2023-11-16T21:09:20.123+01:00  INFO 46997 --- [           main] o.f.core.internal.command.DbValidate     : Successfully validated 6 migrations (execution time 00:00.002s)
+2023-11-16T21:09:20.125+01:00  INFO 46997 --- [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": 2023.11.16.150
+2023-11-16T21:09:20.125+01:00  INFO 46997 --- [           main] o.f.core.internal.command.DbMigrate      : Schema "PUBLIC" is up to date. No migration necessary.
+2023-11-16T21:09:20.132+01:00  INFO 46997 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-16T21:09:20.134+01:00  INFO 46997 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-11-16T21:09:20.134+01:00  WARN 46997 --- [           main] org.hibernate.dialect.Dialect            : HHH000511: The 2.1.0 version for [org.hibernate.dialect.PostgreSQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.0.0. Check the community dialects project for available legacy versions.
+2023-11-16T21:09:20.134+01:00  WARN 46997 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2023-11-16T21:09:20.173+01:00  INFO 46997 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: 
     alter table if exists category_products 
        drop constraint if exists FKe9irm5a62pmolhvr468cip3v3
@@ -215,10 +202,331 @@ Hibernate:
        add constraint FKi8jnqq05sk5nkma3pfp3ylqrt 
        foreign key (product_id) 
        references product
-2023-11-16T21:09:19.137+01:00  INFO 46997 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-16T21:09:19.292+01:00  INFO 46997 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-11-16T21:09:19.586+01:00  WARN 46997 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-11-16T21:09:19.723+01:00  INFO 46997 --- [           main] c.example.demo.NearByApplicationTests    : Started NearByApplicationTests in 2.369 seconds (process running for 2.77)
+2023-11-16T21:09:20.184+01:00  INFO 46997 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-16T21:09:20.240+01:00  INFO 46997 --- [           main] c.e.d.d.product.ProductRepositoryTest    : Started ProductRepositoryTest in 0.21 seconds (process running for 3.287)
+Hibernate: 
+    insert 
+    into
+        category
+        (name) 
+    values
+        (?)
+Hibernate: 
+    insert 
+    into
+        product
+        (available_in_stock,category_id,description,latitude,longitude,image_url,name,price) 
+    values
+        (?,?,?,?,?,?,?,?)
+Hibernate: 
+    insert 
+    into
+        product
+        (available_in_stock,category_id,description,latitude,longitude,image_url,name,price) 
+    values
+        (?,?,?,?,?,?,?,?)
+Hibernate: 
+    insert 
+    into
+        product
+        (available_in_stock,category_id,description,latitude,longitude,image_url,name,price) 
+    values
+        (?,?,?,?,?,?,?,?)
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.available_in_stock,
+        p1_0.category_id,
+        p1_0.description,
+        p1_0.latitude,
+        p1_0.longitude,
+        p1_0.image_url,
+        p1_0.name,
+        p1_0.price 
+    from
+        product p1_0 
+    where
+        p1_0.available_in_stock>0 
+    order by
+        acos(((sin(?)*sin(p1_0.latitude))+((cos(?)*cos(p1_0.latitude))*cos((?-p1_0.longitude))))) 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.available_in_stock,
+        p1_0.category_id,
+        p1_0.description,
+        p1_0.latitude,
+        p1_0.longitude,
+        p1_0.image_url,
+        p1_0.name,
+        p1_0.price 
+    from
+        product p1_0
+]]></system-out>
+  </testcase>
+  <testcase name="itShouldReturnProductsThatAreAvailableInStockGreaterThanZeroWithoutUsingFiltersOnPriceAndCategory" classname="com.example.demo.data.product.ProductRepositoryTest" time="0.017">
+    <system-out><![CDATA[Hibernate: 
+    insert 
+    into
+        category
+        (name) 
+    values
+        (?)
+Hibernate: 
+    insert 
+    into
+        product
+        (available_in_stock,category_id,description,latitude,longitude,image_url,name,price) 
+    values
+        (?,?,?,?,?,?,?,?)
+Hibernate: 
+    insert 
+    into
+        product
+        (available_in_stock,category_id,description,latitude,longitude,image_url,name,price) 
+    values
+        (?,?,?,?,?,?,?,?)
+Hibernate: 
+    insert 
+    into
+        product
+        (available_in_stock,category_id,description,latitude,longitude,image_url,name,price) 
+    values
+        (?,?,?,?,?,?,?,?)
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.available_in_stock,
+        p1_0.category_id,
+        p1_0.description,
+        p1_0.latitude,
+        p1_0.longitude,
+        p1_0.image_url,
+        p1_0.name,
+        p1_0.price 
+    from
+        product p1_0 
+    where
+        p1_0.available_in_stock>? 
+        and (
+            ? is null 
+            or p1_0.price>=?
+        ) 
+        and (
+            ? is null 
+            or p1_0.price<=?
+        ) 
+        and (
+            ? is null 
+            or p1_0.category_id=?
+        ) 
+    order by
+        p1_0.price desc 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.available_in_stock,
+        p1_0.category_id,
+        p1_0.description,
+        p1_0.latitude,
+        p1_0.longitude,
+        p1_0.image_url,
+        p1_0.name,
+        p1_0.price 
+    from
+        product p1_0
+]]></system-out>
+  </testcase>
+  <testcase name="itShouldReturnEmptyListWhenMinPriceIsGreaterThanAllProductsPrice" classname="com.example.demo.data.product.ProductRepositoryTest" time="0.01">
+    <system-out><![CDATA[Hibernate: 
+    insert 
+    into
+        category
+        (name) 
+    values
+        (?)
+Hibernate: 
+    insert 
+    into
+        product
+        (available_in_stock,category_id,description,latitude,longitude,image_url,name,price) 
+    values
+        (?,?,?,?,?,?,?,?)
+Hibernate: 
+    insert 
+    into
+        product
+        (available_in_stock,category_id,description,latitude,longitude,image_url,name,price) 
+    values
+        (?,?,?,?,?,?,?,?)
+Hibernate: 
+    insert 
+    into
+        product
+        (available_in_stock,category_id,description,latitude,longitude,image_url,name,price) 
+    values
+        (?,?,?,?,?,?,?,?)
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.available_in_stock,
+        p1_0.category_id,
+        p1_0.description,
+        p1_0.latitude,
+        p1_0.longitude,
+        p1_0.image_url,
+        p1_0.name,
+        p1_0.price 
+    from
+        product p1_0 
+    where
+        p1_0.available_in_stock>? 
+        and (
+            ? is null 
+            or p1_0.price>=?
+        ) 
+        and (
+            ? is null 
+            or p1_0.price<=?
+        ) 
+        and (
+            ? is null 
+            or p1_0.category_id=?
+        ) 
+    order by
+        p1_0.price desc 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.available_in_stock,
+        p1_0.category_id,
+        p1_0.description,
+        p1_0.latitude,
+        p1_0.longitude,
+        p1_0.image_url,
+        p1_0.name,
+        p1_0.price 
+    from
+        product p1_0
+]]></system-out>
+  </testcase>
+  <testcase name="itShouldReturnProductsThatAreAvailableInStockGreaterThanZero" classname="com.example.demo.data.product.ProductRepositoryTest" time="0.013">
+    <system-out><![CDATA[Hibernate: 
+    insert 
+    into
+        category
+        (name) 
+    values
+        (?)
+Hibernate: 
+    insert 
+    into
+        product
+        (available_in_stock,category_id,description,latitude,longitude,image_url,name,price) 
+    values
+        (?,?,?,?,?,?,?,?)
+Hibernate: 
+    insert 
+    into
+        product
+        (available_in_stock,category_id,description,latitude,longitude,image_url,name,price) 
+    values
+        (?,?,?,?,?,?,?,?)
+Hibernate: 
+    insert 
+    into
+        product
+        (available_in_stock,category_id,description,latitude,longitude,image_url,name,price) 
+    values
+        (?,?,?,?,?,?,?,?)
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.available_in_stock,
+        p1_0.category_id,
+        p1_0.description,
+        p1_0.latitude,
+        p1_0.longitude,
+        p1_0.image_url,
+        p1_0.name,
+        p1_0.price 
+    from
+        product p1_0 
+    where
+        p1_0.available_in_stock>? 
+        and (
+            ? is null 
+            or p1_0.price>=?
+        ) 
+        and (
+            ? is null 
+            or p1_0.price<=?
+        ) 
+        and (
+            ? is null 
+            or p1_0.category_id=?
+        ) 
+    order by
+        p1_0.price 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.available_in_stock,
+        p1_0.category_id,
+        p1_0.description,
+        p1_0.latitude,
+        p1_0.longitude,
+        p1_0.image_url,
+        p1_0.name,
+        p1_0.price 
+    from
+        product p1_0
+]]></system-out>
+  </testcase>
+  <testcase name="itShouldSaveProductWhenAllDataIsValid" classname="com.example.demo.data.product.ProductRepositoryTest" time="0.011">
+    <system-out><![CDATA[Hibernate: 
+    insert 
+    into
+        category
+        (name) 
+    values
+        (?)
+Hibernate: 
+    insert 
+    into
+        product
+        (available_in_stock,category_id,description,latitude,longitude,image_url,name,price) 
+    values
+        (?,?,?,?,?,?,?,?)
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.available_in_stock,
+        p1_0.category_id,
+        p1_0.description,
+        p1_0.latitude,
+        p1_0.longitude,
+        p1_0.image_url,
+        p1_0.name,
+        p1_0.price 
+    from
+        product p1_0
 ]]></system-out>
   </testcase>
 </testsuite>
