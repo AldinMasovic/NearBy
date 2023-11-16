@@ -9,7 +9,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
-import java.util.Set;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
