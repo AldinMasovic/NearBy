@@ -15,13 +15,14 @@ import java.math.BigDecimal;
 @RestController
 @RequestMapping("/api/v1/products")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class ProductController {
 
     private final ProductService productService;
 
     @GetMapping("/sale")
     public Page<ProductDto> getProductsInStock(@RequestParam(required = false, defaultValue = "0") BigDecimal minPrice,
-                                               @RequestParam(required = false, defaultValue = "MAX_VALUE") BigDecimal maxPrice,
+                                               @RequestParam(required = false, defaultValue = Long.MAX_VALUE + "") BigDecimal maxPrice,
                                                @RequestParam(required = false, defaultValue = "ASC") SortingOrder sortingOrder,
                                                @RequestParam(required = false, defaultValue = "0") Integer page,
                                                @RequestParam(required = false, defaultValue = "20") Integer size) {

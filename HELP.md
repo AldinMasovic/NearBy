@@ -20,16 +20,12 @@ The following guides illustrate how to use some features concretely:
 
 docker build -t near_app:tag .
 
-[//]: # (docker run -p 5432:5432 --name postgresql-container -e POSTGRES_DB=near -e POSTGRES_USER=near_user -e POSTGRES_PASSWORD=near_by_me -d postgres:latest      )
 
 docker run -p 5432:5432 --name postgresql-container -e POSTGRES_DB=near -e POSTGRES_USER=near_user -e POSTGRES_PASSWORD=near_by_me -d near_app:tag
-
-[//]: # (docker run -p 8080:8080 --name spring-boot-container --link postgresql-container -d backend:tag)
 
 docker run -p 8080:8080 --name spring-boot-container --link postgresql-container -d near_app:tag
 
 mvn clean install
-
 
 mvn spring-boot:run
 
